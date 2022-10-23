@@ -20,95 +20,75 @@ package Lesson2;
 import java.util.Scanner;
 
 public class Main1 {
-
     public static void main(String[] args) {
-        Pistol pistol = new Pistol();
-        Bullet bullet = new Bullet(1000,10);
+        Pistol pistol = new Pistol(new Bullet(1000,10));
         System.out.print("1. Узнать урон пули\n" +
                 "2. Изменить скорость пули\n" +
                 "3. Изменить вес пули\n" +
                 "4. Выход ");
         Scanner scn = new Scanner(System.in);
         int input = scn.nextInt();
-            if (input==1) {
-                System.out.println(bullet.inshot());
-            }
+        if (input==1) {
+            System.out.println(pistol.inshot());
+        }
         else if (input==2) {
             System.out.println("Введите новую скорость пули");
-                System.out.println(bullet.setSpeed.nextInt());
+            int speed = scn.nextInt();
+            pistol.getBullet().setSpeed(speed);
         }
-            else if (input==3) {
-                System.out.println("Введите новый вес пули");
-                System.out.println(bullet.setSpeed.nextInt());
-            }
-            else if (input==4) {
+        else if (input==3) {
+            System.out.println("Введите новый вес пули");
+            int weight = scn.nextInt();
+            pistol.getBullet().setWeight(weight);
+        }
+        else if (input==4) {
             System.out.println("Выход из программы");
         }
-
-        }
     }
-
-
-
+}
 class Pistol {
 
-    private Speed speed;
-    private Weight weight;
+    private Bullet bullet;
 
-    void Bullet(Speed speed, Weight weight) {
-        this.speed = speed;
-        this.weight = weight;
+    Pistol(Bullet bullet) {
+        this.bullet = bullet;
     }
 
-    public Speed getSpeed() {
-        return speed;
+    public Bullet getBullet() {
+        return bullet;
     }
 
-    public boolean setSpeed(Speed speed) {
-        this.speed = speed;
-        return false;
+    public void setBullet(Bullet bullet) {
+        this.bullet = bullet;
+    }
+    public int inshot(){
+        return bullet.getSpeed()*bullet.getWeight();
     }
 
-    public Weight getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Weight weight) {
-        this.weight = weight;
-    }
-    
 }
 class Bullet{
-    public Scanner setSpeed;
-    int speed;
-    int weight;
+
+    private int speed;
+    private int weight;
 
     Bullet(int speed, int weight) {
         this.speed = speed;
         this.weight=weight;
     }
 
-public int inshot(){
-        int damage = speed*weight;
-        return speed*weight;
-}
+    public int getSpeed() {
+        return speed;
+    }
 
-}
-class Speed{
-    int speed;
-
-    Speed(int speed) {
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
 
+    public int getWeight() {
+        return weight;
+    }
 
-}
-
-class Weight {
-
-    int weight;
-
-    Weight(int weight) {
-    this.weight=weight;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }
