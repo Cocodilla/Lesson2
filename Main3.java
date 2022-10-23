@@ -25,14 +25,36 @@ package Lesson2;
 //Возможные значния: 6 7 8 9 10 J Q K A
 //Возможные масти: черви, пики, крести, буби (или по английски можно)
 
+import java.util.Scanner;
+
 public class Main3 {
     public static void main(String[] args) {
 
+        Scanner scn = new Scanner(System.in);
+        int input = 0;
+        while(input!=2){
+            System.out.println("1. Добавить карту\n" +
+                    "2. Выход");
+            input = scn.nextInt();
+            if(input == 1){
+
+
+                }
+            }
+            if(input == 2){
+                System.out.println("Выход");
+
+            }
+        }
     }
+
+class Deck{
+    Card [] card = new Card[32];
 }
 class  Card{
-    int [] cardNum;
-    String[] cardName;
 
+    int [] cardNum = {6,7,8,9,10};
+    String[] cardName = {"Diamonds", "Hearts", "Clubs", "Spades"};
+    String[] cardFace = {"Jack", "Queen", "King", "Ace"};
 
 }

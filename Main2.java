@@ -32,11 +32,16 @@ package Lesson2;
 //red
 //red
 
+import java.util.Random;
 
 public class Main2 {
 
     public static void main(String[] args) {
+
 Pen pen = new Pen(new Solid("black", 100));
+        Random ink = new Random();
+        Solid.inkPercent= ink.nextInt(20)+10;
+
 pen.write("I write ");
 
     }
@@ -55,6 +60,7 @@ class Pen{
         this.solid = solid;
     }
 
+
     void write(String text){
         for (int i = 0; i < ; i++) {
             System.out.println(text + solid.getColor());
@@ -68,6 +74,7 @@ class Pen{
 
         class Solid{
 
+
             private String color;
     private  int inkPercent;
 
@@ -76,6 +83,7 @@ class Pen{
         this.inkPercent=inkPercent;
 
     }
+
 
             public  String getColor() {
                 return color;
